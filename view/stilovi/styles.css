@@ -85,6 +85,19 @@ body {
 	width: 300px;
 }
 
+/* -----stilovi za tabelu sa izveštajima, potrebno je stilizovati i tabele unutar forme -----*/
+/*.izveštaj table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+.izveštaj th, td {
+    border: 2px solid black;
+    width: 15%;
+    text-align: center;
+    background-color: white;
+}*/
+
 
 /*-------------------------     STILOVI ZA FUTER       ------- -----------------*/
 .footer {

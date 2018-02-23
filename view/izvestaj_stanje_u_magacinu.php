@@ -4,7 +4,7 @@
 				<div class="main_head">
 					<h2>Izveštaj o stanju uređaja u magacinu</h2>
 				</div>
-				<div class="polje">
+				<div class="izveštaj">
 
 <?php 
 	$servername = "localhost";
@@ -15,19 +15,21 @@
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
 // tabela sa svim podacima
-	$sql = "SELECT * FROM izmene_logovi";
+	$sql = "SELECT * FROM uredjaji_lokacija";
 	$result = $conn->query($sql);
-    echo'<table>
+    echo'<table class="izveštaj">
     		<tr>
-    			<th>ID</th>
+    			<th>RB</th>
     			<th>Tip Uređaja</th>
     			<th>Serijski broj</th>
+    			<th>Lokacija</th>
     		</tr>';
 	while($row = $result->fetch_assoc()) {
     	echo '<tr>
-        		<td>' . $row["id"] . '</td>
+        		<td>' . $row["rb"] . '</td>
         		<td>' . $row["tip_uredjaja"] . '</td>
         		<td>' . $row["serijski_broj"] . '</td>
+        		<td>' . $row["lokacija"] . '</td>
         	</tr>';	
 	   			};
  	echo '</table>'; ?>

@@ -49,6 +49,7 @@ switch ($operacija) {
 		var_dump($terminal);
 		var_dump($qprox);
 		include 'unos_u_izmene_logovi.php';
+		include 'unos_u_uredjaji_lokacija.php';
 		if ($_POST['terminal_novi'] != '') $terminal[0] = $_POST['terminal_novi'];
 		if ($_POST['qprox_novi'] != '') $qprox[0] = $_POST['qprox_novi'];
 		$polazna_lokacija = 'serviser';
