@@ -9,8 +9,8 @@
 		for ($i = 1; $i <= $t; $i++) {
 			echo '<tr>
 					<td>'.$i.'</td>
-					<td><input type="text" name="terminal_'.$i.'" id="terminal_'.$i.'"></td>
-					<td><input type="text" name="qprox_'.$i.'" id="qprox_'.$i.'"></td>
+					<td><input type="text" name="terminal[]" id="terminal_'.$i.'"></td>
+					<td><input type="text" name="qprox[]" id="qprox_'.$i.'"></td>
 				</tr>';
 		}	
 		echo '<td><button>+</button></td>

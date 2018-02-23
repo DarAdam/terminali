@@ -2,22 +2,9 @@
 
 $datum = $_POST['datum'];
 $operacija = $_POST['operacija'];
-$terminal = array();
-$qprox = array();
+$terminal = array_slice($_POST['terminal'], 0, array_search('', $_POST['terminal']));
+$qprox = array_slice($_POST['qprox'], 0, array_search('', $_POST['qprox']));
 $napomena = $_POST['napomena'];
-
-//------ FORMIRA NIZ OD SERIJSKIH BROJEVA ZA TERMINALE I QPROX-E ------------ 
-$a = 1;
-while ($_POST['terminal_' . $a] != '') {
-	array_push($terminal, $_POST['terminal_' . $a]);
-	$a++;
-}
-
-$b = 1;
-while ($_POST['qprox_' . $b] != '') {
-	array_push($qprox, $_POST['qprox_' . $b]);
-	$b++;
-}
 
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
 
