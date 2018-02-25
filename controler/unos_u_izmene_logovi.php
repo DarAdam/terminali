@@ -1,29 +1,24 @@
 <?php 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "terminali";
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	if ($conn->connect_error) {
-			die( "Konekcija neuspešna: " . $conn->connect_error);
-		} else {
-			echo "Konekcija uspešna <br><br>";
-		};
-
-	$unos = $conn->prepare("INSERT INTO izmene_logovi (datum, operacija, polazna_lokacija, odredisna_lokacija, tip_uredjaja, serijski_broj, napomena) VALUES (?, ?, ?, ?, ?, ?, ?)");
-	$unos->bind_param("sssssis", $datum, $operacija, $polazna_lokacija, $odredisna_lokacija, $tip_uređaja, $serijski_broj, $napomena);
+	include 'connect.php';
 
 	foreach ($terminal as $serijski_broj) {
-		$tip_uređaja = 'terminal';	
-		$unos->execute();
+		$tip_uređaja = 'terminal';
+		$sql = "INSERT INTO izmene_logovi (datum, operacija, polazna_lokacija, odredisna_lokacija, tip_uredjaja, serijski_broj, napomena) VALUES ('$datum', '$operacija', '$polazna_lokacija', '$odredisna_lokacija', '$tip_uređaja', '$serijski_broj', '$napomena')";
+		$conn->query($sql);
 	}
 	foreach ($qprox as $serijski_broj) {
 		$tip_uređaja = 'q prox';	
-		$unos->execute();
+		$sql = "INSERT INTO izmene_logovi (datum, operacija, polazna_lokacija, odredisna_lokacija, tip_uredjaja, serijski_broj, napomena) VALUES ('$datum', '$operacija', '$polazna_lokacija', '$odredisna_lokacija', '$tip_uređaja', '$serijski_broj', '$napomena')";
+		$conn->query($sql);
 	}
 
-	$unos->close();
+
+
+/*
+	if ($conn->multy_query(substr($sql, 0, -1)) === TRUE) {
+    echo "New records created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}*/
 	$conn->close();		
  ?>

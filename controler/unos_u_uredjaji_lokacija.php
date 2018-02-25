@@ -1,16 +1,5 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "terminali";
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	if ($conn->connect_error) {
-			die( "Konekcija neuspešna: " . $conn->connect_error);
-		} else {
-			echo "Konekcija uspešna <br><br>";
-		};
+	include 'connect.php';
 
 	$unos = $conn->prepare("INSERT INTO uredjaji_lokacija (tip_uredjaja, serijski_broj, lokacija, datum_poslednje_promene, napomena) VALUES (?, ?, ?, ?, ?)");
 	$unos->bind_param("sisss", $tip_uređaja, $serijski_broj, $odredisna_lokacija, $datum, $napomena);
@@ -23,7 +12,7 @@
 		switch ($broj_uredjaja_na_listi->num_rows) {
 			case 1:
 				echo "<br>Već ima upisan terminal " . $serijski_broj;
-				$conn->query('UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');
+				$conn->query('UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '", datum_poslednje_promene = "' . $datum . '", napomena = "' . $napomena . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');
 				break;
 			case 0:
 				$unos->execute();
@@ -41,7 +30,7 @@
 		switch ($broj_uredjaja_na_listi->num_rows) {
 			case 1:
 				echo "<br>Već ima upisan Qprox " . $serijski_broj;
-				$conn->query('UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');
+				$conn->query('UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '", datum_poslednje_promene = "' . $datum . '", napomena = "' . $napomena . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');
 				break;
 			case 0:
 				$unos->execute();

@@ -34,8 +34,8 @@
 					<li><a href="izvestaj_stanje_u_magacinu.php">Izveštaji o stanju uređaja</a></li>
 					<ul>
 						<li><a href="izvestaj_stanje_u_magacinu.php">Stanje uređaja u magacinu</a></li>
-						<li><a href="izvestaj_stanje_u_magacinu.php">Stanje uređaja u servisu</a></li>
-						<li><a href="izvestaj_stanje_u_magacinu.php">Stanje uređaja kod servisera</a></li>					
+						<li><a href="izvestaj_stanje_u_servisu.php">Stanje uređaja u servisu</a></li>
+						<li><a href="izvestaj_stanje_kod_servisera.php">Stanje uređaja kod servisera</a></li>					
 					</ul>
 				</ul>	
 			</div>
