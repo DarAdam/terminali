@@ -25,8 +25,8 @@
 							</tr>
 							<tr>
 								<td>stari uređaj</td>
-								<td><input type="text" name="terminal_1"></td>
-								<td><input type="text" name="qprox_1"></td>
+								<td><input type="text" name="terminal[]"></td>
+								<td><input type="text" name="qprox[]"></td>
 							</tr>
 							<tr>
 								<td>novi uređaj</td>

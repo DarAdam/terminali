@@ -33,7 +33,11 @@ switch ($operacija) {
 		$polazna_lokacija = 'teren';
 		$odredisna_lokacija = 'serv_lanus';
 		$napomena = $_POST['distributer'] . ', ' . $_POST['prodajno_mesto'] . '; Napomena:' . $_POST['napomena'];
+		$terminal =$_POST['terminal'];
+		$qprox = $_POST['qprox'];
+		echo 'terminal stari:<br>';
 		var_dump($terminal);
+		echo 'qprox stari: <br>';
 		var_dump($qprox);
 		include 'unos_u_izmene_logovi.php';
 		include 'unos_u_uredjaji_lokacija.php';
