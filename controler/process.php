@@ -4,6 +4,13 @@ $datum = $_POST['datum'];
 $operacija = $_POST['operacija'];
 $terminal = array_slice($_POST['terminal'], 0, array_search('', $_POST['terminal']));
 $qprox = array_slice($_POST['qprox'], 0, array_search('', $_POST['qprox']));
+
+
+var_dump($terminal);
+var_dump($qprox);
+
+
+
 $napomena = $_POST['napomena'];
 
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
@@ -33,12 +40,11 @@ switch ($operacija) {
 		$polazna_lokacija = 'teren';
 		$odredisna_lokacija = 'serv_lanus';
 		$napomena = $_POST['distributer'] . ', ' . $_POST['prodajno_mesto'] . '; Napomena:' . $_POST['napomena'];
-		$terminal =$_POST['terminal'];
-		$qprox = $_POST['qprox'];
 		echo 'terminal stari:<br>';
 		var_dump($terminal);
 		echo 'qprox stari: <br>';
 		var_dump($qprox);
+		die;
 		include 'unos_u_izmene_logovi.php';
 		include 'unos_u_uredjaji_lokacija.php';
 		if ($_POST['terminal_novi'] != '') $terminal[0] = $_POST['terminal_novi'];

@@ -6,10 +6,17 @@
 	foreach ($terminal as $serijski_broj) {
 		$tip_uređaja = 'terminal';
 		$test = $conn->query('SELECT lokacija FROM uredjaji_lokacija WHERE tip_uredjaja = "terminal" AND serijski_broj = "' . $serijski_broj . '";');
-		$trenutna_lokacija = $test->fetch_assoc();
-		var_dump($trenutna_lokacija); die;
+		$row = $test->fetch_assoc();
+		echo $row['lokacija'];
+				
+		if (is_null ($row['lokacija'])) {
+			$trenutna_lokacija = '';
+		} else {
+			$trenutna_lokacija = $row['lokacija'];
+		}
+		var_dump($trenutna_lokacija);
 		echo 'trenutna lokacija terminala: ' . $trenutna_lokacija . '<br>';
-		if ($trentna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren') {
+		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren') {
 			echo '<br>Nije dobar unos za terminal<br>';
 			die;
 		}
@@ -17,14 +24,21 @@
 	foreach ($qprox as $serijski_broj) {
 		$tip_uređaja = 'q prox';
 		$test = $conn->query('SELECT lokacija FROM uredjaji_lokacija WHERE tip_uredjaja = "q prox" AND serijski_broj = "' . $serijski_broj . '";');
-		$trenutna_lokacija = $test->fetch_assoc();
+		$row = $test->fetch_assoc();
+		echo $row['lokacija'];
+				
+		if (is_null ($row['lokacija'])) {
+			$trenutna_lokacija = '';
+		} else {
+			$trenutna_lokacija = $row['lokacija'];
+		}
+		var_dump($trenutna_lokacija);
 		echo 'trenutna lokacija qprox-a: ' . $trenutna_lokacija . '<br>';
 		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren') {
 			echo '<br>Nije dobar unos za Qprox<br>';
 			die;
 		}
 	}
-
 
 	//unesi podatak u bazu, u tabelu izmene_logovi		
 	foreach ($terminal as $serijski_broj) {
