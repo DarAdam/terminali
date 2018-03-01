@@ -2,15 +2,10 @@
 
 $datum = $_POST['datum'];
 $operacija = $_POST['operacija'];
-$terminal = array_slice($_POST['terminal'], 0, array_search('', $_POST['terminal']));
-$qprox = array_slice($_POST['qprox'], 0, array_search('', $_POST['qprox']));
-
-
+$terminal = array_values(array_diff($_POST['terminal'], ['']));
+$qprox = array_values(array_diff($_POST['qprox'], ['']));
 var_dump($terminal);
 var_dump($qprox);
-
-
-
 $napomena = $_POST['napomena'];
 
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
@@ -44,7 +39,6 @@ switch ($operacija) {
 		var_dump($terminal);
 		echo 'qprox stari: <br>';
 		var_dump($qprox);
-		die;
 		include 'unos_u_izmene_logovi.php';
 		include 'unos_u_uredjaji_lokacija.php';
 		if ($_POST['terminal_novi'] != '') $terminal[0] = $_POST['terminal_novi'];
@@ -68,5 +62,6 @@ echo $napomena . '<br>';
 // ------- POZIVA KOMUNIKACIJU ZA BAZOM, ODNOSNO UNOS PODATAKA U BAZU -------
 include 'unos_u_izmene_logovi.php';
 include 'unos_u_uredjaji_lokacija.php';
+
 
 ?>
