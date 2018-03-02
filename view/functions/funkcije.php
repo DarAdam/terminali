@@ -20,7 +20,7 @@
 
 	function izvestaj($lokacija) {
 		include '../controler/connect.php';
-		$sql = "SELECT *, DATE_FORMAT(datum_poslednje_promene,'%d/%m/%Y') AS niceDate FROM uredjaji_lokacija WHERE lokacija ='$lokacija'";
+		$sql = "SELECT *, DATE_FORMAT(datum_poslednje_promene,'%d/%m/%Y') AS niceDate FROM uredjaji_lokacija WHERE lokacija ='$lokacija' ORDER BY tip_uredjaja DESC, serijski_broj";
 		$result = $conn->query($sql);
 		//$sql = "SELECT "
 	    echo'<table>
@@ -43,5 +43,13 @@
 	        	</tr>';	
 		   			};
 	 	echo '</table>';
+	}
+
+	function izbroj_uređaje($lokacija, $tip) {
+		include '../controler/connect.php';
+		$sql = "SELECT COUNT(rb) FROM uredjaji_lokacija WHERE lokacija ='$lokacija' AND tip_uredjaja = '$tip'";
+		$result = $conn->query($sql);
+		$polje = implode($result->fetch_assoc());
+		echo 'Ukupno uređaja tipa ' . $tip . ' ima ' . $polje . '.<br><br>';
 	}
  ?>

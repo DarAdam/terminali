@@ -12,7 +12,8 @@
 		switch ($broj_uredjaja_na_listi->num_rows) {
 			case 1:
 				echo "<br>Već ima upisan terminal " . $serijski_broj;
-				$conn->query('UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '", datum_poslednje_promene = "' . $datum . '", napomena = "' . $napomena . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');
+				$sql = 'UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '", datum_poslednje_promene = "' . $datum . '", napomena = "' . $napomena . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"';
+				$conn->query($sql);
 				break;
 			case 0:
 				$unos->execute();
@@ -20,6 +21,7 @@
 			
 			default:
 				echo "<br>Greška: Ima više terminala sa serijskim brojem " . $serijski_broj ;
+				header('Location: ../view/index.php?msg=12');
 				break;
 		}
 	}
@@ -30,7 +32,8 @@
 		switch ($broj_uredjaja_na_listi->num_rows) {
 			case 1:
 				echo "<br>Već ima upisan Qprox " . $serijski_broj;
-				$conn->query('UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '", datum_poslednje_promene = "' . $datum . '", napomena = "' . $napomena . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');
+				$sql = 'UPDATE uredjaji_lokacija SET lokacija = "' . $odredisna_lokacija . '", datum_poslednje_promene = "' . $datum . '", napomena = "' . $napomena . '" WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"';
+				$conn->query($sql);
 				break;
 			case 0:
 				$unos->execute();
@@ -38,6 +41,7 @@
 			
 			default:
 				echo "<br>Greška: Ima više Qproxa sa serijskim brojem " . $serijski_broj ;
+				header('Location: ../view/index.php?msg=13');
 				break;
 		}
 	}

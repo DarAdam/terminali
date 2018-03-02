@@ -1,7 +1,6 @@
 <?php  
 
-$datum = date("d/m/Y");
-var_dump($_POST['datum']);
+$datum = $_POST['datum'];
 $operacija = $_POST['operacija'];
 $terminal = array_values(array_diff($_POST['terminal'], ['']));
 $qprox = array_values(array_diff($_POST['qprox'], ['']));
@@ -9,7 +8,7 @@ var_dump($terminal);
 var_dump($qprox);
 $napomena = $_POST['napomena'];
 var_dump($datum);
-die;
+
 
 
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
@@ -34,6 +33,11 @@ switch ($operacija) {
 		$polazna_lokacija = $_POST['polazna_lokacija'];
 		$odredisna_lokacija = $_POST['odredisna_lokacija'];
 		break;
+
+	case 'novi':
+		$polazna_lokacija = 'nabavka';
+		$odredisna_lokacija = 'magacin';
+		break;	
 
 	case 'zamena_uređaja':
 		$polazna_lokacija = 'teren';
@@ -67,6 +71,6 @@ echo $napomena . '<br>';
 include 'unos_u_izmene_logovi.php';
 include 'unos_u_uredjaji_lokacija.php';
 
-$msg = 'radi';
-header('Location: http://localhost/terminali/view/index.php')
+
+header('Location: ../view/index.php?msg=1')
 ?>

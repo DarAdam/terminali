@@ -30,6 +30,7 @@
 						<li><a href="izdavanje_iz_magacina.php">Izdavanje iz magacina</a></li>
 						<li><a href="reklamacije.php">Reklamacije</a></li>
 						<li><a href="ostalo.php">Ostalo</a></li>
+						<li><a href="novi.php">Nabavka uređaja</a></li>
 					</ul>
 					<li><a href="izvestaj_stanje_u_magacinu.php">Izveštaji o stanju uređaja</a></li>
 					<ul>

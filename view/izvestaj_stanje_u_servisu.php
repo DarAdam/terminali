@@ -7,6 +7,9 @@
 				<div id="izveštaj">
 
 				<?php 
+					izbroj_uređaje('serv_lanus', 'terminal');
+					izbroj_uređaje('serv_lanus', 'q prox');
+					echo 'Serijski brojevi uređaja su sledeći:';
 					izvestaj('serv_lanus');
 					?>
 

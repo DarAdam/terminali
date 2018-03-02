@@ -16,8 +16,9 @@
 		}
 		var_dump($trenutna_lokacija);
 		echo 'trenutna lokacija terminala: ' . $trenutna_lokacija . '<br>';
-		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren') {
+		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren' && $polazna_lokacija != 'nabavka') {
 			echo '<br>Nije dobar unos za terminal<br>';
+			header('Location: ../view/index.php?msg=10');
 			die;
 		}
 	}
@@ -34,8 +35,9 @@
 		}
 		var_dump($trenutna_lokacija);
 		echo 'trenutna lokacija qprox-a: ' . $trenutna_lokacija . '<br>';
-		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren') {
+		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != 'teren' && $polazna_lokacija != 'nabavka') {
 			echo '<br>Nije dobar unos za Qprox<br>';
+			header('Location: ../view/index.php?msg=11');
 			die;
 		}
 	}
