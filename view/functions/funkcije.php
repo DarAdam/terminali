@@ -52,4 +52,34 @@
 		$polje = implode($result->fetch_assoc());
 		echo 'Ukupno uređaja tipa ' . $tip . ' ima ' . $polje . '.<br><br>';
 	}
+
+	function istorija_uređaja($tip, $serijski_broj) {
+		include '../controler/connect.php';
+		$sql = "SELECT * FROM izmene_logovi WHERE tip_uredjaja = '$tip' AND serijski_broj = '$serijski_broj'";
+		$result = $conn->query($sql);
+		echo'<table>
+	    		<tr>
+	    			<th>ID</th>
+	    			<th>Datum</th>
+	    			<th>Operacija</th>
+	    			<th>Polazna lokacija</th>
+	    			<th>Odredišna lokacija</th>
+	    			<th>Tip uređaja</th>
+	    			<th>Serijski broj</th>
+	    			<th>Napomena</th>
+	    		</tr>';
+		while($row = $result->fetch_assoc()) {
+	    	echo '<tr>
+	        		<td>' . $row["id"] . '</td>
+	        		<td>' . $row["datum"] . '</td>
+	        		<td>' . $row["operacija"] . '</td>
+	        		<td>' . $row["polazna_lokacija"] . '</td>
+	        		<td>' . $row["odredisna_lokacija"] . '</td>
+	        		<td>' . $row["tip_uredjaja"] . '</td> 
+	        		<td>' . $row["serijski_broj"] . '</td>  
+	        		<td>' . $row["napomena"] . '</td>  		
+	        	</tr>';	
+		   			};
+		  echo '</table>';
+	}
  ?>

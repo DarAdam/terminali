@@ -32,7 +32,7 @@
 						<li><a href="ostalo.php">Ostalo</a></li>
 						<li><a href="novi.php">Nabavka uređaja</a></li>
 					</ul>
-					<li><a href="izvestaj_stanje_u_magacinu.php">Izveštaji o stanju uređaja</a></li>
+					<li><a href="izvestaj.php">Izveštaji o stanju uređaja</a></li>
 					<ul>
 						<li><a href="izvestaj_stanje_u_magacinu.php">Stanje uređaja u magacinu</a></li>
 						<li><a href="izvestaj_stanje_u_servisu.php">Stanje uređaja u servisu</a></li>
