@@ -1,6 +1,6 @@
 <?php 
 	function napravi_tabelu($t) {
-		echo '<table>
+		echo '<table id="tabela">
 				<tr>
 					<th>RB</th>
 					<th>Terminal</th>
@@ -13,7 +13,7 @@
 					<td><input type="text" name="qprox[]" id="qprox_'.$i.'"></td>
 				</tr>';
 		}	
-		echo '<td><button>+</button></td>
+		echo '<td><button type="button" id="dodajdugme" onclick="dodaj_red()">+</button></td>
 				</tr>							
 			</table>';
 	}
