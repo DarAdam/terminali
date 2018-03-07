@@ -53,7 +53,7 @@ echo '<br><br><br>';
 // ----------------------------------   sql za kreiranje druge tabele  -------------------------------
 $sql = "CREATE TABLE izmene_logovi (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-datum VARCHAR(30) NOT NULL,
+datum TIMESTAMP NOT NULL,
 operacija VARCHAR(30) NOT NULL,
 polazna_lokacija VARCHAR(30) NOT NULL,
 odredisna_lokacija VARCHAR(30) NOT NULL,
@@ -68,5 +68,16 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
+$sql = "CREATE TABLE 'lokacija' (
+id int not null AUTO_INCREMENT,
+lokacija VARCHAR(30) NOT NULL,
+PRIMARY KEY ('id')) 
+ENGINE = InnoDB;";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Tabela 'lokacija' je uspešno kreirana";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
 $conn->close();
  ?>

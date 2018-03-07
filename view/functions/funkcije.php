@@ -9,8 +9,8 @@
 		for ($i = 1; $i <= $t; $i++) {
 			echo '<tr>
 					<td>'.$i.'</td>
-					<td><input type="text" name="terminal[]" id="terminal_'.$i.'"></td>
-					<td><input type="text" name="qprox[]" id="qprox_'.$i.'"></td>
+					<td><input type="text" name="terminal[]"></td>
+					<td><input type="text" name="qprox[]"></td>
 				</tr>';
 		}	
 		echo '<td><button type="button" id="dodajdugme" onclick="dodaj_red()">+</button></td>
@@ -20,7 +20,7 @@
 
 	function izvestaj($lokacija) {
 		include '../controler/connect.php';
-		$sql = "SELECT *, DATE_FORMAT(datum_poslednje_promene,'%d/%m/%Y') AS niceDate FROM uredjaji_lokacija WHERE lokacija ='$lokacija' ORDER BY tip_uredjaja DESC, serijski_broj";
+		$sql = "SELECT *, DATE_FORMAT(datum_poslednje_promene,'%d.%m.%Y') AS niceDate FROM uredjaji_lokacija WHERE lokacija ='$lokacija' ORDER BY tip_uredjaja DESC, serijski_broj";
 		$result = $conn->query($sql);
 		//$sql = "SELECT "
 	    echo'<table>
