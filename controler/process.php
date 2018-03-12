@@ -5,6 +5,16 @@ $operacija = $_POST['operacija'];
 $terminal = array_values(array_diff($_POST['terminal'], ['']));
 $qprox = array_values(array_diff($_POST['qprox'], ['']));
 $napomena = $_POST['napomena'];
+$id_uređaja = array();
+$broj_dokumenta = 'test';
+//ukoliko ne postoji neki od uređaja upisaće ga u bazu i vratiti njegov novi ID
+include 'unos_novog_uredjaja.php';
+
+var_dump($id_uređaja);
+
+
+
+
 
 
 
@@ -12,18 +22,18 @@ $napomena = $_POST['napomena'];
 
 switch ($operacija) {
 	case 'izdavanje_iz_magacina':
-		$polazna_lokacija = 'magacin';
-		$odredisna_lokacija = 'serviser';
+		$polazna_lokacija = '1';
+		$odredisna_lokacija = '3';
 		break;
 
 	case 'vracanje_sa_servisa':
-		$polazna_lokacija = 'serv_lanus';
-		$odredisna_lokacija = 'magacin';
+		$polazna_lokacija = '2';
+		$odredisna_lokacija = '1';
 		break;
 
 	case 'reklamacija':
-		$polazna_lokacija = 'serviser';
-		$odredisna_lokacija = 'serv_lanus';
+		$polazna_lokacija = '3';
+		$odredisna_lokacija = '2';
 		break;
 
 	case 'ostalo':
@@ -32,20 +42,20 @@ switch ($operacija) {
 		break;
 
 	case 'novi':
-		$polazna_lokacija = 'nabavka';
-		$odredisna_lokacija = 'magacin';
+		$polazna_lokacija = '5';
+		$odredisna_lokacija = '1';
 		break;	
 
 	case 'zamena_uređaja':
-		$polazna_lokacija = 'teren';
-		$odredisna_lokacija = 'serv_lanus';
+		$polazna_lokacija = '4';
+		$odredisna_lokacija = '2';
 		$napomena = $_POST['distributer'] . ', ' . $_POST['prodajno_mesto'] . '; Napomena:' . $_POST['napomena'];
 		include 'unos_u_izmene_logovi.php';
 		include 'unos_u_uredjaji_lokacija.php';
 		if ($_POST['terminal_novi'] != '') $terminal[0] = $_POST['terminal_novi'];
 		if ($_POST['qprox_novi'] != '') $qprox[0] = $_POST['qprox_novi'];
-		$polazna_lokacija = 'serviser';
-		$odredisna_lokacija = 'teren';
+		$polazna_lokacija = '3';
+		$odredisna_lokacija = '4';
 	
 	default:
 		# code...
@@ -54,7 +64,7 @@ switch ($operacija) {
 
 // ------- POZIVA KOMUNIKACIJU ZA BAZOM, ODNOSNO UNOS PODATAKA U BAZU -------
 include 'unos_u_izmene_logovi.php';
-include 'unos_u_uredjaji_lokacija.php';
+
 
 
 header('Location: ../view/index.php?msg=1')
