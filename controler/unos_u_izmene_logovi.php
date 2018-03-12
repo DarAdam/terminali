@@ -11,7 +11,7 @@
 		} else {
 			$trenutna_lokacija = $row['ID_lokacija'];
 		}
-		var_dump($trenutna_lokacija);die;
+		var_dump($trenutna_lokacija);
 		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != '4' && $polazna_lokacija != '5') {
 			header('Location: ../view/index.php?msg=10');
 			die;

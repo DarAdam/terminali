@@ -49,8 +49,8 @@ switch ($operacija) {
 		
 		if ($_POST['terminal_novi'] != '') $terminal[0] = $_POST['terminal_novi'];
 		if ($_POST['qprox_novi'] != '') $qprox[0] = $_POST['qprox_novi'];
-		var_dump($_POST['terminal_novi']);
-		var_dump($terminal);
+		var_dump($_POST['qprox_novi']);
+		var_dump($qprox);
 		include 'unos_novog_uredjaja.php';
 		$polazna_lokacija = '3';
 		$odredisna_lokacija = '4';
@@ -64,7 +64,7 @@ switch ($operacija) {
 var_dump($id_uređaja);
 include 'unos_u_izmene_logovi.php';
 
-die;
+
 
 
 header('Location: ../view/index.php?msg=1')
