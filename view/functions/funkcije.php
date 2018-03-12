@@ -82,4 +82,22 @@
 		   			};
 		  echo '</table>';
 	}
+
+	function odabir_lokacije($sifra, $label) {
+		include '../controler/connect.php';
+		$sql = "SELECT * FROM lokacije ";
+		$result = $conn->query($sql);
+		$row = $result->fetch_all();
+		
+		echo '<div>
+			<label for="'.$sifra.'">'.$label.'</label>
+			<select name="'.$sifra.'">';
+
+			foreach ($row as $key => $value) {
+						echo '<option value="'.$value[0].'">'.$value[1].'</option>;';
+					}		
+				
+		echo '</select>
+			</div>';
+	}
  ?>
