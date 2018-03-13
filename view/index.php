@@ -12,7 +12,10 @@
 					<?php
 					if (isset($_GET['msg'])){
 						echo $msgs[$_GET['msg']];
-					}
+						}
+					if (isset($_GET['id_uređaja']))	{
+						echo "Id uređaja je ". $_GET['id_uređaja'];
+						}
 					 ?>
 				</div>
 <?php include 'includes/footer.php' ?>
