@@ -7,15 +7,9 @@ $qprox = array_values(array_diff($_POST['qprox'], ['']));
 $napomena = $_POST['napomena'];
 $id_uređaja = array();
 $broj_dokumenta = 'test';
+
 //ukoliko ne postoji neki od uređaja upisaće ga u bazu i vratiti njegov novi ID
 include 'unos_novog_uredjaja.php';
-
-var_dump($id_uređaja);
-
-
-
-
-
 
 
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
