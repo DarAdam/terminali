@@ -11,15 +11,11 @@
 							<label for="datum">Datum:</label>
 							<input type="date" name="datum" id="datum">
 						</div>
+
 						<?php napravi_tabelu(2); ?>
-						<div>
-							<label for="polazna_lokacija">Polazna lokacija:</label>
-							<input type="polazna_lokacija" name="polazna_lokacija" id="polazna_lokacija">
-						</div>
-						<div>
-							<label for="odredisna_lokacija">Odredišna lokacija:</label>
-							<input type="odredisna_lokacija" name="odredisna_lokacija" id="odredisna_lokacija">
-						</div>
+						<?php odabir_lokacije('polazna_lokacija', 'Polanzna lokacija: ') ?>
+						<?php odabir_lokacije('odredisna_lokacija', 'Odredišna lokacija: ') ?>
+						
 						<div>
 							<label for="napomena">Napomena:</label>
 							<input type="text" name="napomena" id="napomena">

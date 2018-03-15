@@ -1,7 +1,9 @@
 <?php
 	include 'connect.php';
 
+	$id_uređaja = array();
 
+//ubacivanje novih uređaja u tabelu "uređaji lokacija" i formiranje niza id_uređaja
 	foreach ($terminal as $serijski_broj) {
 		$tip_uređaja = 'terminal';
 		$uredjaji_na_listi = $conn->query('SELECT * FROM uredjaji_lokacija WHERE tip_uredjaja = "' . $tip_uređaja . '" AND serijski_broj = "' . $serijski_broj . '"');

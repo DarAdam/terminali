@@ -12,7 +12,7 @@
 			$trenutna_lokacija = $row['ID_lokacija'];
 		}
 		if ($trenutna_lokacija != $polazna_lokacija && $polazna_lokacija != '4' && $polazna_lokacija != '5') {
-			header('Location: ../view/index.php?msg=10');
+			header('Location: ../view/index.php?msg=10&id_uređaja='.$broj);
 			die;
 		}
 	}

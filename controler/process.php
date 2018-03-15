@@ -11,7 +11,10 @@ $broj_dokumenta = 'test';
 //ukoliko ne postoji neki od uređaja upisaće ga u bazu i vratiti njegov novi ID
 include 'unos_novog_uredjaja.php';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 68ab342d17cff58ce655f38f14e77d87af941dda
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
 
 switch ($operacija) {
@@ -44,10 +47,13 @@ switch ($operacija) {
 		$polazna_lokacija = '4';
 		$odredisna_lokacija = '2';
 		$napomena = $_POST['distributer'] . ', ' . $_POST['prodajno_mesto'] . '; Napomena:' . $_POST['napomena'];
+		
 		include 'unos_u_izmene_logovi.php';
-		include 'unos_u_uredjaji_lokacija.php';
+		
 		if ($_POST['terminal_novi'] != '') $terminal[0] = $_POST['terminal_novi'];
 		if ($_POST['qprox_novi'] != '') $qprox[0] = $_POST['qprox_novi'];
+		
+		include 'unos_novog_uredjaja.php';
 		$polazna_lokacija = '3';
 		$odredisna_lokacija = '4';
 	
@@ -57,9 +63,8 @@ switch ($operacija) {
 }
 
 // ------- POZIVA KOMUNIKACIJU ZA BAZOM, ODNOSNO UNOS PODATAKA U BAZU -------
+
 include 'unos_u_izmene_logovi.php';
-
-
 
 header('Location: ../view/index.php?msg=1')
 ?>
