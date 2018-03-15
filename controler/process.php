@@ -11,10 +11,9 @@ $broj_dokumenta = 'test';
 //ukoliko ne postoji neki od uređaja upisaće ga u bazu i vratiti njegov novi ID
 include 'unos_novog_uredjaja.php';
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 68ab342d17cff58ce655f38f14e77d87af941dda
+
+
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
 
 switch ($operacija) {
