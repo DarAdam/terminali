@@ -1,7 +1,7 @@
 <?php
 	include 'connect.php';
 
-	$id_uređaja = array();
+	
 
 //ubacivanje novih uređaja u tabelu "uređaji lokacija" i formiranje niza id_uređaja
 	foreach ($terminal as $serijski_broj) {
