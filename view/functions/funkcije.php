@@ -26,7 +26,6 @@
 		
 		echo'<table>
 	    		<tr>
-	    			
 	    			<th>Tip Uređaja</th>
 	    			<th>Serijski broj</th>
 	    			<th>Lokacija</th>
@@ -35,7 +34,6 @@
 	    		</tr>';
 		while($row = $result->fetch_assoc()) {
 	    	echo '<tr>
-	        		
 	        		<td>' . $row["tip_uredjaja"] . '</td>
 	        		<td>' . $row["serijski_broj"] . '</td>
 	        		<td>' . $row["lokacija"] . '</td>
@@ -56,28 +54,19 @@
 
 	function istorija_uređaja($tip, $serijski_broj) {
 		include '../controler/connect.php';
-		$sql = "SELECT * FROM izmene_logovi WHERE tip_uredjaja = '$tip' AND serijski_broj = '$serijski_broj'";
+		$sql = "SELECT izmene_logovi.datum, izmene_logovi.operacija, izmene_logovi.napomena, izmene_logovi.broj_dokumenta, DATE_FORMAT(datum_poslednje_promene,'%d.%m.%Y') AS niceDate FROM izmene_logovi INNER JOIN uredjaji_lokacija on izmene_logovi.ID_uredjaja = uredjaji_lokacija.id WHERE tip_uredjaja = '$tip' AND serijski_broj = '$serijski_broj'";
 		$result = $conn->query($sql);
+		
 		echo'<table>
 	    		<tr>
-	    			<th>ID</th>
 	    			<th>Datum</th>
 	    			<th>Operacija</th>
-	    			<th>Polazna lokacija</th>
-	    			<th>Odredišna lokacija</th>
-	    			<th>Tip uređaja</th>
-	    			<th>Serijski broj</th>
 	    			<th>Napomena</th>
 	    		</tr>';
 		while($row = $result->fetch_assoc()) {
 	    	echo '<tr>
-	        		<td>' . $row["id"] . '</td>
-	        		<td>' . $row["datum"] . '</td>
+	        		<td>' . $row["niceDate"] . '</td>
 	        		<td>' . $row["operacija"] . '</td>
-	        		<td>' . $row["polazna_lokacija"] . '</td>
-	        		<td>' . $row["odredisna_lokacija"] . '</td>
-	        		<td>' . $row["tip_uredjaja"] . '</td> 
-	        		<td>' . $row["serijski_broj"] . '</td>  
 	        		<td>' . $row["napomena"] . '</td>  		
 	        	</tr>';	
 		   			};
