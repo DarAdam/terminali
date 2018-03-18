@@ -5,14 +5,23 @@ $operacija = $_POST['operacija'];
 $terminal = array_values(array_diff($_POST['terminal'], ['']));
 $qprox = array_values(array_diff($_POST['qprox'], ['']));
 $napomena = $_POST['napomena'];
-$id_uređaja = array();
-$broj_dokumenta = 'test';
+$broj_dokumenta = '';
+
+
+
+// ---------- dobijanje broja dokumenta ----------
+include 'connect.php';
+$x = 0;
+do {
+$x ++;
+$broj_dokumenta = date("dmY", strtotime($datum)) . '-' . $x;
+$dok = $conn->query("SELECT broj_dokumenta FROM izmene_logovi WHERE broj_dokumenta = '" . $broj_dokumenta . "'");
+} while ($dok->num_rows != 0);
+
+
 
 //ukoliko ne postoji neki od uređaja upisaće ga u bazu i vratiti njegov novi ID
 include 'unos_novog_uredjaja.php';
-
-
-
 
 // ---------- ZAVISNO OD OPERACIJE (OTVORENE STRANICE) DEFINIŠE PROMENLJIVE ------- 
 
@@ -65,5 +74,11 @@ switch ($operacija) {
 
 include 'unos_u_izmene_logovi.php';
 
-header('Location: ../view/index.php?msg=1')
+
+if ($operacija == 'izdavanje_iz_magacina') {
+	header('Location: ../view/otpremnica.php?broj='. $broj_dokumenta . '&term='. implode(",",$terminal) . '&q=' . implode(",",$qprox));
+} else {
+	header('Location: ../view/index.php?msg=1');
+}
+
 ?>
