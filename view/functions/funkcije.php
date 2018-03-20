@@ -20,7 +20,10 @@
 
 	function izvestaj($lokacija) {
 		include '../controler/connect.php';
-		$sql = "SELECT tip_uredjaja, serijski_broj, lokacija, DATE_FORMAT(datum_poslednje_promene,'%d.%m.%Y') AS niceDate, napomena FROM uredjaji_lokacija INNER JOIN lokacije ON uredjaji_lokacija.ID_lokacija = lokacije.id WHERE ID_lokacija ='$lokacija' ORDER BY tip_uredjaja DESC, serijski_broj ";
+		$sql = "SELECT tip_uredjaja, serijski_broj, lokacija, DATE_FORMAT(datum_poslednje_promene,'%d.%m.%Y') AS niceDate, napomena FROM 	 uredjaji_lokacija 
+				INNER JOIN lokacije 
+				ON uredjaji_lokacija.ID_lokacija = lokacije.id 
+				WHERE ID_lokacija = $lokacija ORDER BY tip_uredjaja DESC";
 
 		$result = $conn->query($sql);
 		

@@ -5,7 +5,7 @@
 					<h2>Izdavanje ispravnih uređaja iz magacina</h2>
 				</div>
 				<div class="polje">
-					<form method="POST" action="../controler/process.php">
+					<form method="POST" action="../controler/process.php" target="_blank">
 						<input type="hidden" name="operacija" value="izdavanje_iz_magacina">
 						<div>
 							<label for="datum">Datum:</label>
